@@ -69,7 +69,6 @@
         WHERE
         question.user_id = user.id
         AND question.category_id = category.id
-        AND DATE_SUB(CURDATE(), INTERVAL 30 DAY) &lt;= DATE(TIME)
         ORDER BY praise
         DESC LIMIT #{num}
     </select>
@@ -325,8 +324,6 @@
         question.user_id = user.id
         AND question.category_id = category.id
         AND urgent = 1
-        AND DATE_SUB(CURDATE(), INTERVAL #{num} DAY) &lt;= DATE(TIME)
-        GROUP BY TIME
     </select>
 
 </mapper>
